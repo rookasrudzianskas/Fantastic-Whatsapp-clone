@@ -1,3 +1,6 @@
+
+import { firebaseAuth, firebaseDb } from "boot/firebase";
+
 const state = {
 
 }
