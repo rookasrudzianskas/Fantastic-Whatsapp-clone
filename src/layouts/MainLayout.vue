@@ -8,6 +8,9 @@
           {{ title }}
         </q-toolbar-title>
 
+        <q-btn dense icon="account_circle" class="absolute-right q-pr-sm" no-caps to="/auth" flat label="Login" />
+
+
       </q-toolbar>
     </q-header>
 
