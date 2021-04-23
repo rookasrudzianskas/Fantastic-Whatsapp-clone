@@ -25,6 +25,15 @@ const actions = {
       .catch(error => {
         console.log(error.message)
       })
+  },
+  loginUser({}, payload) {
+    firebaseAuth.signInWithEmailAndPassword(payload.email, payload.password)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error.message)
+      })
   }
 }
 

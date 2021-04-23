@@ -47,10 +47,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions('store', ['registerUser']),
+    ...mapActions('store', ['registerUser', 'loginUser']),
     submitForm() {
       if (this.tab == 'login'){
-        console.log('log in to the user')
+        this.loginUser(this.formData)
       } else {
         this.registerUser(this.formData)
       }
