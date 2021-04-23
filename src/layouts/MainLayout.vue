@@ -3,7 +3,7 @@
 
     <q-header elevated>
       <q-toolbar>
-
+        <q-btn v-if="$route.fullPath.includes('/chat')" v-go-back.single dense icon="arrow_back" flat label="Back" />
         <q-toolbar-title class="absolute-center">
           {{ title }}
         </q-toolbar-title>
