@@ -5,21 +5,21 @@
       outlined
       v-model="formData.name"
       class="q-mb-md"
-      label="Name" />
+      label="Name 🤹" />
 
     <q-input
       outlined
       v-model="formData.email"
       class="q-mb-md"
       type="email"
-      label="Email" />
+      label="Email ✉️" />
 
     <q-input
       outlined
       v-model="formData.password"
       class="q-mb-md"
       type="password"
-      label="Password" />
+      label="Password 👽" />
 
 <div class="row">
   <q-space />
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: ['tab'],
   data() {
@@ -46,11 +47,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions('store', ['registerUser']),
     submitForm() {
       if (this.tab == 'login'){
         console.log('log in to the user')
       } else {
-        console.log("register")
+        this.registerUser(this.formData)
       }
     }
   }
