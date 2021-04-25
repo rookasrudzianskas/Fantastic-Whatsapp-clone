@@ -55,10 +55,12 @@ const actions = {
             userId: userId
           })
         })
+        this.$router.push('/')
 
       } else {
         // use is logged out
         commit('setUserDetails', {})
+        this.$router.replace('/auth')
 
 
       }
