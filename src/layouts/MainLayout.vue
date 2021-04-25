@@ -8,7 +8,9 @@
           {{ title }}
         </q-toolbar-title>
 
-        <q-btn dense icon="account_circle" class="absolute-right q-pr-sm" no-caps to="/auth" flat label="Login" />
+        <q-btn v-if="!userDetails.userId" dense icon="account_circle" class="absolute-right q-pr-sm" no-caps to="/auth" flat label="Login" />
+
+        <q-btn v-else dense @click="logoutUser" icon="account_circle" class="absolute-right q-pr-sm" no-caps flat > Log out {{ userDetails.name}}</q-btn>
 
 
       </q-toolbar>
@@ -23,9 +25,12 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 
 export default {
+
   computed: {
+    ...mapState('store', ["userDetails"]),
     title() {
       let currentPath = this.$route.fullPath
       if(currentPath == '/') return 'SmackChat'
@@ -34,7 +39,12 @@ export default {
     }
   },
   methods: {
-
+    ...mapActions('store', ['logoutUser'])
   }
 }
 </script>
+<style lang="stylus">
+  .q-toolbar
+    .q-btn
+      line-height 1.2
+</style>
