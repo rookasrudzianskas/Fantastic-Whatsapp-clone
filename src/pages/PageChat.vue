@@ -64,6 +64,9 @@ export default {
         from: 'me',
       })
     }
+  },
+  mounted() {
+    this.firebaseGetMessages(this.$route.params.otherUserId)
   }
 }
 </script>
