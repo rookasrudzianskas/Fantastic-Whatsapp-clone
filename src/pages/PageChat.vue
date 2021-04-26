@@ -44,7 +44,7 @@ export default {
     ...mapState('store', ['messages'])
   },
   methods: {
-    ...mapActions('store', ['firebaseGetMessages']),
+    ...mapActions('store', ['firebaseGetMessages', 'firebaseStopGettingMessages']),
     sendMessage() {
       console.log('👽', 'clicked')
       this.messages.push({
@@ -55,6 +55,9 @@ export default {
   },
   mounted() {
     this.firebaseGetMessages(this.$route.params.otherUserId)
+  },
+  destroyed() {
+    this.firebaseStopGettingMessages()
   }
 }
 </script>
