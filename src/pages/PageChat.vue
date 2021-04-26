@@ -31,32 +31,20 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   data() {
     return {
       newMessage: '',
-      messages: [
-        {
-          text: 'How are you bro?',
-          from: 'me',
-        },
 
-        {
-          text: 'My name is ROkas, how are you?',
-          from: 'them',
-        },
-
-        {
-          text: 'i am fine, just go to the city!',
-          from: 'me',
-        }
-
-
-      ]
     }
 
   },
+  computed: {
+    ...mapState('store', ['messages'])
+  },
   methods: {
+    ...mapActions('store', ['firebaseGetMessages']),
     sendMessage() {
       console.log('👽', 'clicked')
       this.messages.push({
