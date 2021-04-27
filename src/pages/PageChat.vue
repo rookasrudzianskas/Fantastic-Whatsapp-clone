@@ -3,7 +3,7 @@
     ref="pageChat"
     class="page-chat flex column">
 
-    <q-banner class=" text-center bg-grey-4" v-if="!otherUserDetails.online">
+    <q-banner class=" text-center bg-grey-4 fixed-top" v-if="!otherUserDetails.online">
       {{ otherUserDetails.name }} is offline
     </q-banner>
 
@@ -14,7 +14,9 @@
         :key="key"
         :name="message.from == 'me' ? userDetails.name : otherUserDetails.name"
         :text="[message.text]"
+                      :bg-color="message.from == 'me' ? 'white' : 'light-green-2'"
         :sent="message.from == 'me' ? true : false"
+
       />
 
     </div>
@@ -108,6 +110,11 @@ export default {
       opacity  0.1
       background-image radial-gradient(circle at 100% 150%, silver 24%, white 24%, white 28%, silver 28%, silver 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 0    150%, silver 24%, white 24%, white 28%, silver 28%, silver 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 50%  100%, white 10%, silver 10%, silver 23%, white 23%, white 30%, silver 30%, silver 43%, white 43%, white 50%, silver 50%, silver 63%, white 63%, white 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, white 5%, silver 5%, silver 15%, white 15%, white 20%, silver 20%, silver 29%, white 29%, white 34%, silver 34%, silver 44%, white 44%, white 49%, transparent 49%, transparent), radial-gradient(circle at 0    50%, white 5%, silver 5%, silver 15%, white 15%, white 20%, silver 20%, silver 29%, white 29%, white 34%, silver 34%, silver 44%, white 44%, white 49%, transparent 49%, transparent)
       background-size 100px 50px;
+
+  .q-banner
+    top 50px
+    z-index 2
+    opacity 0.8
 
   .q-message
     z-index 1
