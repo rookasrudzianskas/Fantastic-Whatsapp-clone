@@ -23,7 +23,7 @@
     <q-footer elevated>
       <q-toolbar>
         <q-form @submit="sendMessage" class="full-width">
-          <q-input ref="newMessage" bg-color="white" rounded outlined v-model="newMessage" label="Message 🚀" dense>
+          <q-input ref="newMessage" @blur="scrollToBottom" bg-color="white" rounded outlined v-model="newMessage" label="Message 🚀" dense>
             <template v-slot:before>
             </template>
             <template v-slot:after>
