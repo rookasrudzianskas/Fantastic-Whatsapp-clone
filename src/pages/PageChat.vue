@@ -21,7 +21,7 @@
     <q-footer elevated>
       <q-toolbar>
         <q-form @submit="sendMessage" class="full-width">
-          <q-input bg-color="white" rounded outlined v-model="newMessage" label="Message 🚀" dense>
+          <q-input ref="newMessage" bg-color="white" rounded outlined v-model="newMessage" label="Message 🚀" dense>
             <template v-slot:before>
             </template>
             <template v-slot:after>
@@ -60,6 +60,11 @@ export default {
         },
         otherUserId: this.$route.params.otherUserId
       })
+      this.clearMessage()
+    },
+    clearMessage() {
+      this.newMessage = ''
+      this.$refs.newMessage.focus()
     },
     scrollToBottom() {
       let pageChat = this.$refs.pageChat.$el
