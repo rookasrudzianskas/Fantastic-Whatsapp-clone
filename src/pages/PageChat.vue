@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex column">
 
-    <q-banner class=" text-center bg-grey-4">
+    <q-banner class=" text-center bg-grey-4" v-if="!otherUserDetails.online">
       {{ otherUserDetails.name }} is offline
     </q-banner>
 
