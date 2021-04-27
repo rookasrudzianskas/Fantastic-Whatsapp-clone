@@ -48,7 +48,7 @@ const actions = {
 			})
 			.catch(error => {
 				console.log(error.message)
-			})		
+			})
 	},
 	logoutUser() {
 		firebaseAuth.signOut()
@@ -129,7 +129,10 @@ const actions = {
 			messagesRef.off('child_added')
 			commit('clearMessages')
 		}
-	}
+	},
+  firebaseSendMessage({}, payload) {
+    firebaseDb.ref('chats/' + state.userDetails.userId + '/' + payload.otherUserId)
+  }
 }
 const getters = {
 	users: state => {
